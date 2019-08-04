@@ -1,0 +1,41 @@
+@model ManageUsersViewModel
+@inject UserManager<ApplicationUser> userManager
+@{
+    ViewData["Title"] = "Manage users";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Email</td>
+        </tr>
+    </thead>
+
+    @foreach (var user in Model.Everyone)
+    {
+        var isAdmin = user != null
+        && await userManager.IsInRoleAsync(
+        user,
+        "Admin");
+
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.Email</td>
+            @if (!isAdmin)
+            {
+                <td>
+                    <a asp-controller="ManageUsers"
+                       asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+                </td>
+            }
+            else
+            {
+                <td></td>
+            }
+        </tr>
+    }
+</table>

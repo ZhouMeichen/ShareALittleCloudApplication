@@ -1,0 +1,328 @@
+﻿body {
+    padding-top: 50px;
+    overflow-x: hidden;
+    font-family: Montserrat;
+}
+
+.navbar-inverse {
+    background-color: #0d3456;
+    border-color: #0d3456;
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+    }
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+}
+
+/* Carousel */
+.carousel {
+    position: initial;
+}
+
+.carousel-caption p {
+    font-size: 40px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.btn-Register {
+    background-color: #0d3456;
+    color: #fff;
+    margin-left: 36%;
+}
+
+.registerDiv {
+    background-color: #ffffff47;
+    margin-top: 10%;
+}
+
+.logIn {
+    background-color: #ffffff47;
+    margin-top: 10%;
+}
+
+.btn-Login {
+    background-color: #0d3456;
+    color: #fff;
+    margin-left: 25%;
+    border-radius: 0px;
+    width: 40%;
+}
+
+@media screen and (min-width: 768px) .carousel-caption {
+    right: 20%;
+    left: 20%;
+    padding-bottom: 10%;
+}
+
+.carousel-caption {
+    position: absolute;
+    background-color: #33333394;
+    right: 15%;
+    bottom: 25%;
+    left: 15%;
+    z-index: 10;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+
+footer {
+    background-color: #023750;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+    footer p {
+        color: #fff;
+        text-align: center;
+    }
+
+.carousel .item {
+    height: 580px;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 580px;
+}
+
+.srv-content-box h4 {
+    font-size: 30px;
+    font-weight: bold;
+    /* font-family: Montserrat; */
+    letter-spacing: 1.5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.srv-content-box p {
+    font-size: 17px;
+    text-align: justify;
+    letter-spacing: 0.9px;
+    line-height: 27px;
+    font-weight: 400;
+    font-family: Montserrat;
+    margin-bottom: 0;
+}
+
+.srv-content-box h4::before {
+    content: "";
+    background-color: #185584;
+    position: absolute;
+    bottom: 0;
+    height: 4px;
+    width: 40px;
+    margin: 0 auto;
+}
+
+.srv-content-box {
+    padding-top: 50px;
+}
+
+    .srv-content-box p {
+        font-size: 17px;
+        line-height: 30px;
+        text-align: justify;
+    }
+
+    .srv-content-box address {
+        font-size: 17px;
+        line-height: 30px;
+        text-align: justify;
+    }
+
+.nav {
+    padding-right: 30px;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.caption h3 {
+    text-transform: capitalize;
+}
+
+.caption p {
+    text-transform: capitalize;
+}
+
+.thumbnail {
+    display: block;
+    padding: 4px;
+    height: 400px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+
+    .img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+        display: block;
+        max-width: 100%;
+       
+    }
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    #myImg:hover {
+        opacity: 0.7;
+    }
+
+/* The Modal (background) */
+.Popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.Popup-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.Popup-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 60px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+dd {
+    margin-left: 5%;
+    font-size: 17px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+dt {
+    font-size: 17px;
+    line-height: 30px;
+    text-align: justify;
+}
+.thumbnail > img, .thumbnail a > img {
+    margin-right: auto;
+    margin-left: auto;
+    width:100%;height:230px;
+}
+.detailbox {
+    display: block;
+    padding: 4px;
+    
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}

@@ -1,0 +1,121 @@
+﻿@model IEnumerable<ShareALittle.Models.Product>
+@inject UserManager<ApplicationUser> userManager
+@{
+    ViewData["Title"] = "Index";
+}<br><br>
+<div class="container">
+    <h3 style="text-align:center;"><b>Get The Products Here</b></h3>
+    <p>
+        <button class="btn btn-info" style="float:right;"><a asp-action="Create" style="color:#fff;"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;&nbsp;Create New</a></button>
+    </p> <br><br>
+    <div class="row">
+
+        <table class="table">
+            @{
+                var currentUser = await userManager.GetUserAsync(User);
+                var id = "";
+                var email = "";
+                var i = 0;
+                if (currentUser != null)
+                {
+                    id = currentUser.Id;
+                    email = currentUser.Email;
+                }
+                var isAdmin = currentUser != null
+            && await userManager.IsInRoleAsync(
+                currentUser,
+                "Admin");
+            }
+
+            @foreach (var item in Model)
+            {
+
+                i = i + 1;
+                var modalid = "Modal" + i;
+                var bookid = "Book" + i;
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="img-responsive" width="100%" height="197px" src="data:image;base64,@System.Convert.ToBase64String(item.ProductImage)" />
+                        <button class="btn btn-info" style="float:right;"> $@Html.DisplayFor(modelItem => item.ProductPrice)</button>
+                        <div class="caption">
+                            <h3> @Html.DisplayFor(modelItem => item.ProductName)</h3>
+                            <p>@Html.DisplayFor(modelItem => item.ProductDescription)</p>
+                            <p>
+                                @if (item.OwnerID == id || isAdmin)
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.ProductID" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                }
+                                <a asp-action="Details" asp-route-id="@item.ProductID" class="btn btn-warning"><i class="fas fa-eye"></i></a>
+                                @if (item.OwnerID == id || isAdmin)
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.ProductID" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                }
+                                @if (currentUser != null || isAdmin)
+                                {
+                                    if (item.IsBooked)
+                                    {
+                                        <button  class="btn btn-secondary" style="float:right;"> Booked</button>
+                                    }
+                                    else
+                                    {
+                                        <button id ="@bookid" class="btn btn-primary" style="float:right;" data-toggle="modal" data-target="#@modalid"> Book Now</button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="@modalid" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h2 class="modal-title" id="ModalLabel"><img src="~/images/smiley.jpg">&nbsp;&nbsp<b>Awesome</b></h2>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body" style="text-align:center;">
+                                                        <b>You have successfully booked. </b><br/><b>Here we are providing the owner details.</b><br/>
+                                                        <b>Details: @item.ContactDetail</b><br/>
+                                                        <b>Good luck!!!</b>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="Book('@item.ProductID','@bookid');">OK</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </table>
+    </div>
+    <script>
+        function Book(productid,bookid){
+
+			$.ajax(
+			{
+				type: "POST",
+				url: '@Url.Action("Book", "Products")',
+				data: {
+                    Email: "@email",
+                    ProductId: productid
+				},
+				error: function (result) {
+					console.log(result);
+				},
+				success: function (result) {
+                    console.log(result);
+				}
+                });
+            var book = "#" + bookid;
+            $(book).text("Booked");
+            $(book).removeClass("btn btn-primary").addClass("btn btn-secondary");
+        }
+        
+
+    </script>
+</div>

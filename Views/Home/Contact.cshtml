@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="row banner" style="background-image:url(/images/contact.jpg);background-size:cover;height:250px;">
+    <h3 style="text-align:center;color:#fff;font-size:40px;margin-top:100px;"><b>Contact us</b></h3>
+</div>
+<div class="container-fluid">
+    <div class="row srv-content-box">
+        <div class="col-md-12 ">
+            <h4 style="text-align:center;"><b>Share A Little Application</b></h4>
+            <p>
+                Share a Little is a Cloud application for people to shop online Fruits, vegetables and flowers.
+                This website can be browsed by both anonymous visitors and registered members, but only registered members can place an order.
+                This application was developed using Visual Studio 2017 with programming languages;
+                ASP.NET Core, C# and Database which created by different classes then automatically add in SQL Server and then deploy on AWS.
+            </p><br><br>
+        </div>
+        <div class="col-md-6">
+            <address>
+                <h4>Address</h4>
+                139 Carrington Road, <br />
+                Mount Albert, Auckland 1025<br />
+                <abbr title="Phone">P:</abbr>
+                09-815 4321
+            </address>
+        </div>
+        <div class="col-md-6">
+
+            <address>
+                <h4>Get Support from Us</h4>
+                <strong>Support:</strong> <a href="mailto:sharealittlebus@gmail.com">sharealittlebus@gmail.com</a><br />
+                <strong>Marketing:</strong> <a href="mailto:sharealittlebus@gmail.com">sharealittlebus@gmail.com</a>
+            </address>
+        </div>
+    </div>
+</div>
+
+
+<div id="map" style="height:400px; width:100%"></div>
+<script>
+    function initMap() {
+        var uluru = { lat: -36.8808, lng: 174.7078 };
+        var map = new google.maps.Map(
+            document.getElementById('map'), { zoom: 15, center: uluru });
+        var marker = new google.maps.Marker({ position: uluru, map: map });
+    }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDO9kW-HXqyO_dmeqargnuGTg0ydbFKLhY&callback=initMap"
+        type="text/javascript"></script>
